@@ -1,8 +1,9 @@
 import React from 'react';
-import { History, ChevronRight, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { History, ChevronRight, CheckCircle2, Clock, Award } from 'lucide-react';
 import { LaundryOrder } from '../types';
 import { formatRupiah, STATUS_DETAILS } from '../utils/formatters';
 import { useLaundry } from '../context/LaundryContext';
+import { PokeballIcon } from './PokeballIcon';
 
 interface CustomerHistoryProps {
   historyOrders: LaundryOrder[];
@@ -11,7 +12,6 @@ interface CustomerHistoryProps {
 
 export const CustomerHistory: React.FC<CustomerHistoryProps> = ({
   historyOrders,
-  currentOrderId,
 }) => {
   const { selectOrder } = useLaundry();
 
@@ -20,18 +20,25 @@ export const CustomerHistory: React.FC<CustomerHistoryProps> = ({
   }
 
   return (
-    <div className="w-full bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4" id="customer-order-history">
-      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <History className="w-5 h-5 text-indigo-600" />
-          <h3 className="font-bold text-base text-slate-900">Your Order History</h3>
+    <div className="w-full bg-white rounded-3xl p-6 sm:p-8 poke-box space-y-4" id="customer-order-history">
+      <div className="flex items-center justify-between pb-3 border-b-2 border-slate-900">
+        <div className="flex items-center gap-2.5">
+          <div className="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center poke-box-sm">
+            <PokeballIcon size={18} variant="gold" />
+          </div>
+          <div>
+            <h3 className="font-display font-black text-xl text-slate-950">Trainer Care History 📦</h3>
+            <span className="font-mono text-xs text-slate-500 font-bold block">
+              Previous visits linked to your Trainer ID
+            </span>
+          </div>
         </div>
-        <span className="text-xs text-slate-400 font-medium">
-          Linked to your phone number
+        <span className="font-pixel text-[8px] bg-amber-400 text-slate-950 px-2 py-1 rounded border border-slate-900 font-bold">
+          20TH LOG
         </span>
       </div>
 
-      <div className="divide-y divide-slate-100">
+      <div className="divide-y-2 divide-slate-100">
         {historyOrders.map((ord) => {
           const isDone = ord.status === 'PICKED_UP';
           const meta = STATUS_DETAILS[ord.status] || STATUS_DETAILS.RECEIVED;
@@ -40,34 +47,41 @@ export const CustomerHistory: React.FC<CustomerHistoryProps> = ({
             <div
               key={ord.id}
               onClick={() => selectOrder(ord)}
-              className="py-3.5 px-2 flex items-center justify-between rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+              className="py-3.5 px-3 flex items-center justify-between rounded-2xl hover:bg-[#F4F4F9] transition-all cursor-pointer group border border-transparent hover:border-slate-900"
             >
-              <div className="space-y-0.5">
+              <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-slate-900 text-sm group-hover:text-indigo-600 transition-colors">
+                  <span className="font-mono font-black text-slate-950 text-sm group-hover:text-red-600 transition-colors flex items-center gap-1.5">
+                    <PokeballIcon size={14} variant={isDone ? 'gold' : 'great'} />
                     {ord.orderNumber}
                   </span>
                   <span
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${meta.badgeBg} ${meta.badgeText} ${meta.borderClass} flex items-center gap-1`}
+                    className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border ${
+                      isDone
+                        ? 'bg-slate-100 border-slate-300 text-slate-700'
+                        : 'bg-amber-200 border-amber-500 text-slate-950'
+                    } flex items-center gap-1`}
                   >
                     {isDone ? <CheckCircle2 className="w-3 h-3 text-slate-500" /> : <Clock className="w-3 h-3" />}
                     {meta.label}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-500">
+                <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
                   <span>{ord.createdAt.slice(0, 10)}</span>
                   <span>•</span>
                   <span>{ord.items.length} items</span>
                   <span>•</span>
-                  <span>Pickup Code: <strong className="font-mono text-slate-700">{ord.pickupCode}</strong></span>
+                  <span>Passcode: <strong className="text-slate-950 font-bold">{ord.pickupCode}</strong></span>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="font-bold text-slate-900 text-sm">
+                <span className="font-mono font-black text-slate-950 text-sm">
                   {formatRupiah(ord.totalPrice)}
                 </span>
-                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5 transition-all" />
+                <div className="w-8 h-8 rounded-xl bg-slate-100 group-hover:bg-red-600 group-hover:text-white flex items-center justify-center text-slate-600 transition-colors">
+                  <ChevronRight className="w-4 h-4" />
+                </div>
               </div>
             </div>
           );

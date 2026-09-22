@@ -142,7 +142,7 @@ export function buildWhatsAppMessage(order: {
   orderUrl?: string;
 }): string {
   const url = order.orderUrl || window.location.origin;
-  return `Hi ${order.customerName}! Your laundry order *${order.orderNumber}* is ready for pickup.\nTotal: *${formatRupiah(order.totalPrice)}*\nPickup Code: *${order.pickupCode}*\n\nTap here to view your order and pickup details:\n${url}?order=${encodeURIComponent(order.orderNumber)}`;
+  return `🔴⚪ Hi Trainer ${order.customerName}! Your laundry order *${order.orderNumber}* has been healed to 100% Full HP at CleanTrack Laundry and is battle-ready for pickup! ⭐\n\n💰 Total: *${formatRupiah(order.totalPrice)}*\n🎟️ 4-Digit Trainer Passcode: *${order.pickupCode}*\n\nFlash your Trainer Pass or say your passcode at the CleanTrack counter:\n${url}?order=${encodeURIComponent(order.orderNumber)}\n\nTrain On. Clean On! ⚡`;
 }
 
 export function buildWhatsAppLink(phone: string, text: string): string {

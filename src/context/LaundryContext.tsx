@@ -44,16 +44,25 @@ interface LaundryContextType {
   triggerMockWhatsAppAlert: (order: LaundryOrder) => void;
 }
 
-const STORAGE_KEY = 'cleantrack_laundry_orders_v1';
+const STORAGE_KEY = 'cleantrack_laundry_orders_20th_v3';
 
 const LaundryContext = createContext<LaundryContextType | undefined>(undefined);
 
 export const LaundryProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [orders, setOrders] = useState<LaundryOrder[]>(() => {
     try {
+      // Clear legacy storage if present
+      localStorage.removeItem('cleantrack_laundry_orders_v1');
+      localStorage.removeItem('pokewash_laundry_orders_20th_v2');
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((ord: any) => ({
+            ...ord,
+            branchName: 'CleanTrack Laundry - Central Hub',
+          }));
+        }
       }
     } catch {
       // ignore
