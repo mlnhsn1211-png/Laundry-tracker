@@ -1,0 +1,6 @@
+{
+  "name": "Laundry Customer Platform",
+  "description": "Track your laundry status in real time, receive ready notifications, and use digital pickup codes or QR codes for fast, line-free pickup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
