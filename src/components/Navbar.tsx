@@ -2,30 +2,38 @@ import React, { useState } from 'react';
 import {
   Sparkles,
   QrCode,
-  ScanLine,
   BellRing,
   Menu,
   X,
   ChevronDown,
   Layers,
-  Zap,
-  Award,
+  Store,
+  CheckCircle2,
+  Clock,
+  ArrowRight,
+  MessageSquare,
+  Calendar,
 } from 'lucide-react';
 import { useLaundry } from '../context/LaundryContext';
-import { PokeballIcon } from './PokeballIcon';
 
 interface NavbarProps {
   onOpenStaffPortal: () => void;
+  onOpenWhatsAppModal: () => void;
   onScrollToTrack: () => void;
   onScrollToPickup: () => void;
   onScrollToHowItWorks: () => void;
+  onScrollToBooking?: () => void;
+  onScrollToWAUpdate?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenStaffPortal,
+  onOpenWhatsAppModal,
   onScrollToTrack,
   onScrollToPickup,
   onScrollToHowItWorks,
+  onScrollToBooking,
+  onScrollToWAUpdate,
 }) => {
   const { currentOrder, orders, selectOrder, triggerMockWhatsAppAlert } = useLaundry();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,94 +43,94 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      {/* Pokemon 20th Anniversary Kinetic Marquee Ribbon */}
-      <div className="bg-amber-400 border-b-2 border-slate-900 text-slate-950 overflow-hidden py-1.5 font-mono text-[11px] font-bold tracking-tight select-none">
-        <div className="animate-marquee flex items-center gap-6 whitespace-nowrap">
-          <span className="flex items-center gap-1.5 font-pixel text-[10px]">
-            ⭐ CLEANTRACK × POKÉMON 20TH ANNIVERSARY SPECIAL
-          </span>
-          <span>•</span>
-          <span className="bg-red-600 text-white px-2 py-0.5 rounded font-bold">
-            CLEANTRACK LAUNDRY 🔴⚪
-          </span>
-          <span>•</span>
-          <span>TRAIN ON. CLEAN ON. ⚡</span>
-          <span>•</span>
-          <span>HEAL YOUR FIT TO 100% HP 💖</span>
-          <span>•</span>
-          <span className="bg-slate-950 text-amber-300 px-2 py-0.5 rounded font-bold">
-            ZERO QUEUE ERA ⏱️
-          </span>
-          <span>•</span>
-          <span>WHATSAPP READY PINGS 📲</span>
-          <span>•</span>
-          <span className="flex items-center gap-1.5 font-pixel text-[10px]">
-            ⭐ CLEANTRACK × POKÉMON 20TH ANNIVERSARY SPECIAL
-          </span>
-          <span>•</span>
-          <span className="bg-red-600 text-white px-2 py-0.5 rounded font-bold">
-            CLEANTRACK LAUNDRY 🔴⚪
-          </span>
-          <span>•</span>
-          <span>TRAIN ON. CLEAN ON. ⚡</span>
-          <span>•</span>
-          <span>HEAL YOUR FIT TO 100% HP 💖</span>
-          <span>•</span>
-          <span className="bg-slate-950 text-amber-300 px-2 py-0.5 rounded font-bold">
-            ZERO QUEUE ERA ⏱️
-          </span>
+      {/* Top Value Banner */}
+      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="font-medium text-slate-200">
+              CleanTrack Live: Real-time laundry tracking & instant WhatsApp pickup pass
+            </span>
+          </div>
+          <div className="hidden sm:flex items-center gap-4 text-slate-400 text-xs">
+            <span>Central Hub • Open 07:00 – 21:00</span>
+            <span>•</span>
+            <span className="text-emerald-400 font-medium">Fast-Track Counter Active</span>
+          </div>
         </div>
       </div>
 
-      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-slate-900 shadow-sm">
+      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-          {/* Pokemon 20th Brand Logo with CleanTrack */}
+          {/* Brand Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer select-none group"
             onClick={onScrollToTrack}
           >
-            <div className="w-12 h-12 rounded-2xl bg-red-600 text-white poke-box-sm flex items-center justify-center group-hover:rotate-12 transition-transform shadow-[2px_2px_0px_#0f172a]">
-              <PokeballIcon size={28} variant="gold" />
+            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+              <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-black text-2xl tracking-tighter text-slate-950 leading-none">
+              <div className="flex items-center gap-2">
+                <span className="font-display font-extrabold text-2xl tracking-tight text-slate-900 leading-none">
                   CleanTrack
                 </span>
-                <span className="px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 font-pixel text-[8px] font-black border border-slate-900 shadow-[1px_1px_0px_#0f172a]">
-                  20th
+                <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-semibold border border-blue-200">
+                  Live
                 </span>
               </div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">
-                Pokémon 20th Anniversary Edition • 1996-2016
+              <span className="text-[11px] font-medium text-slate-500 block">
+                Laundry Tracking & Fast Pickup
               </span>
             </div>
           </div>
 
           {/* Desktop Nav Actions */}
-          <div className="hidden md:flex items-center gap-2 font-bold text-xs">
+          <div className="hidden md:flex items-center gap-1.5 font-medium text-sm">
             <button
               type="button"
               onClick={onScrollToTrack}
-              className="px-3.5 py-2 rounded-xl text-slate-800 hover:text-slate-950 hover:bg-slate-100 transition-colors"
+              className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors"
             >
               Track Order
             </button>
 
+            {onScrollToBooking && (
+              <button
+                type="button"
+                onClick={onScrollToBooking}
+                className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors flex items-center gap-1.5"
+              >
+                <Calendar className="w-4 h-4 text-blue-600" />
+                <span>Book Laundry</span>
+              </button>
+            )}
+
+            {onScrollToWAUpdate && (
+              <button
+                type="button"
+                onClick={onScrollToWAUpdate}
+                className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors flex items-center gap-1.5"
+              >
+                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <span>WA Updates</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={onScrollToPickup}
-              className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
                 isCurrentOrderReady
-                  ? 'bg-amber-400 text-slate-950 poke-box-sm font-black animate-bounce'
-                  : 'text-slate-800 hover:bg-slate-100'
+                  ? 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-300 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100'
               }`}
             >
-              <PokeballIcon size={16} variant={isCurrentOrderReady ? 'gold' : 'standard'} />
-              <span>Trainer Pickup Pass</span>
+              <QrCode className="w-4 h-4 text-emerald-600" />
+              <span>Pickup Pass</span>
               {isCurrentOrderReady && (
-                <span className="px-1.5 py-0.2 rounded bg-red-600 text-white font-mono text-[9px] font-black">
-                  FULL HP!
+                <span className="px-1.5 py-0.2 rounded-full bg-emerald-600 text-white text-[10px] font-bold">
+                  READY
                 </span>
               )}
             </button>
@@ -130,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={onScrollToHowItWorks}
-              className="px-3.5 py-2 rounded-xl text-slate-800 hover:text-slate-950 hover:bg-slate-100 transition-colors"
+              className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors"
             >
               How It Works
             </button>
@@ -140,41 +148,47 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setDemoDropdownOpen(!demoDropdownOpen)}
-                className="px-3 py-2 rounded-xl bg-white poke-box-sm poke-box-hover text-slate-950 flex items-center gap-1.5 font-mono text-xs"
+                className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 flex items-center gap-1.5 text-xs font-mono font-medium shadow-xs"
               >
-                <Layers className="w-3.5 h-3.5 text-red-600" />
-                <span>Trainer: {currentOrder ? currentOrder.orderNumber : 'Select'}</span>
-                <ChevronDown className="w-3 h-3 text-slate-700" />
+                <Layers className="w-3.5 h-3.5 text-blue-600" />
+                <span>Demo: {currentOrder ? currentOrder.orderNumber : 'Select'}</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
               </button>
 
               {demoDropdownOpen && (
                 <div
-                  className="absolute right-0 mt-2 w-72 bg-white poke-box rounded-2xl p-2.5 z-50 space-y-1.5 shadow-2xl animate-in fade-in"
+                  className="absolute right-0 mt-2 w-72 bg-white border border-slate-200 rounded-xl p-2 z-50 space-y-1 shadow-lg animate-in fade-in"
                   onClick={() => setDemoDropdownOpen(false)}
                 >
-                  <div className="px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
-                    <span>⚡ Sample Trainers</span>
-                    <span className="font-pixel text-[8px] text-amber-500">20TH</span>
+                  <div className="px-2.5 py-1.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-400">
+                    Sample Orders for Testing
                   </div>
                   {orders.map((o) => (
                     <button
                       key={o.id}
                       type="button"
                       onClick={() => selectOrder(o)}
-                      className={`w-full text-left p-2.5 rounded-xl text-xs flex items-center justify-between transition-all ${
+                      className={`w-full text-left p-2 rounded-lg text-xs flex items-center justify-between transition-colors ${
                         currentOrder?.id === o.id
-                          ? 'bg-amber-300 text-slate-950 font-bold poke-box-sm'
-                          : 'hover:bg-slate-100 text-slate-800'
+                          ? 'bg-blue-50 text-blue-900 font-semibold'
+                          : 'hover:bg-slate-50 text-slate-700'
                       }`}
                     >
                       <div>
-                        <span className="font-mono font-bold block flex items-center gap-1.5">
-                          <PokeballIcon size={14} variant={o.status === 'READY' ? 'gold' : 'standard'} />
+                        <span className="font-mono font-semibold block text-slate-900">
                           {o.orderNumber}
                         </span>
-                        <span className="text-[11px] text-slate-600 pl-5">{o.customerName}</span>
+                        <span className="text-[11px] text-slate-500">{o.customerName}</span>
                       </div>
-                      <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded-full bg-slate-950 text-white">
+                      <span
+                        className={`text-[10px] uppercase font-mono font-medium px-2 py-0.5 rounded-full ${
+                          o.status === 'READY'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : o.status === 'PICKED_UP'
+                            ? 'bg-slate-100 text-slate-700'
+                            : 'bg-blue-100 text-blue-800'
+                        }`}
+                      >
                         {o.status}
                       </span>
                     </button>
@@ -186,26 +200,25 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Buttons */}
           <div className="hidden md:flex items-center gap-2.5">
-            {currentOrder && (
-              <button
-                type="button"
-                onClick={() => triggerMockWhatsAppAlert(currentOrder)}
-                className="px-3 py-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-950 poke-box-sm poke-box-hover text-xs font-bold transition-all flex items-center gap-1.5"
-                title="Simulate WhatsApp notification from PokéCenter Bot"
-              >
-                <BellRing className="w-4 h-4 text-emerald-700" />
-                <span>WhatsApp Ping</span>
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={onOpenWhatsAppModal}
+              className="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+              title="Open WhatsApp Alert Test & Dispatch Center"
+              id="btn-nav-whatsapp-modal"
+            >
+              <MessageSquare className="w-4 h-4 text-emerald-600" />
+              <span>WhatsApp Alerts</span>
+            </button>
 
             <button
               type="button"
               onClick={onOpenStaffPortal}
-              className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white poke-box-sm poke-box-hover text-xs font-mono font-bold uppercase tracking-wider transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5 shadow-sm shadow-slate-900/10 cursor-pointer"
               id="btn-staff-portal-nav"
             >
-              <PokeballIcon size={16} variant="ultra" />
-              <span>PokéCenter Counter</span>
+              <Store className="w-4 h-4 text-blue-400" />
+              <span>Counter Staff Terminal</span>
             </button>
           </div>
 
@@ -213,17 +226,26 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex md:hidden items-center gap-2">
             <button
               type="button"
-              onClick={onOpenStaffPortal}
-              className="px-3 py-1.5 rounded-xl bg-red-600 text-white poke-box-sm text-xs font-mono font-bold flex items-center gap-1"
+              onClick={onOpenWhatsAppModal}
+              className="p-2 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold flex items-center"
+              title="WhatsApp Alerts"
             >
-              <PokeballIcon size={14} />
+              <MessageSquare className="w-4 h-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenStaffPortal}
+              className="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-semibold flex items-center gap-1.5"
+            >
+              <Store className="w-3.5 h-3.5" />
               <span>Staff</span>
             </button>
 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-white poke-box-sm text-slate-950"
+              className="p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -232,15 +254,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t-2 border-slate-900 bg-white px-4 py-4 space-y-3">
-            <div className="grid grid-cols-2 gap-2 text-xs font-bold">
+          <div className="md:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3">
+            <div className="grid grid-cols-2 gap-2 text-xs font-medium">
               <button
                 type="button"
                 onClick={() => {
                   onScrollToTrack();
                   setMobileMenuOpen(false);
                 }}
-                className="py-2.5 px-3 bg-slate-100 poke-box-sm rounded-xl text-left"
+                className="py-2.5 px-3 bg-slate-50 hover:bg-slate-100 rounded-lg text-left text-slate-800 font-semibold"
               >
                 Track Order
               </button>
@@ -250,9 +272,31 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onScrollToPickup();
                   setMobileMenuOpen(false);
                 }}
-                className="py-2.5 px-3 bg-amber-400 text-slate-950 poke-box-sm rounded-xl text-left font-black"
+                className="py-2.5 px-3 bg-emerald-50 text-emerald-800 rounded-lg text-left font-semibold border border-emerald-200"
               >
-                Trainer Pass 🎟️
+                Pickup Pass 🎟️
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (onScrollToBooking) onScrollToBooking();
+                  setMobileMenuOpen(false);
+                }}
+                className="py-2.5 px-3 bg-blue-50 text-blue-900 rounded-lg text-left font-semibold border border-blue-200 flex items-center gap-1.5"
+              >
+                <Calendar className="w-3.5 h-3.5 text-blue-600" />
+                <span>Book Laundry 🛵</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (onScrollToWAUpdate) onScrollToWAUpdate();
+                  setMobileMenuOpen(false);
+                }}
+                className="py-2.5 px-3 bg-emerald-50 text-emerald-900 rounded-lg text-left font-semibold border border-emerald-200 flex items-center gap-1.5"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                <span>WA Status Bot 🤖</span>
               </button>
               <button
                 type="button"
@@ -260,27 +304,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onScrollToHowItWorks();
                   setMobileMenuOpen(false);
                 }}
-                className="py-2.5 px-3 bg-slate-100 poke-box-sm rounded-xl text-left"
+                className="py-2.5 px-3 bg-slate-50 hover:bg-slate-100 rounded-lg text-left text-slate-800 font-semibold"
               >
                 How It Works
               </button>
-              {currentOrder && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    triggerMockWhatsAppAlert(currentOrder);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="py-2.5 px-3 bg-emerald-500 text-white poke-box-sm rounded-xl text-left font-bold"
-                >
-                  WhatsApp Ping 📲
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => {
+                  onOpenWhatsAppModal();
+                  setMobileMenuOpen(false);
+                }}
+                className="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-left font-semibold flex items-center gap-1.5"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>WhatsApp Alerts 📲</span>
+              </button>
             </div>
 
             <div className="pt-2 border-t border-slate-200">
-              <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-2">
-                Sample Trainers
+              <p className="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                Sample Test Orders
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {orders.map((o) => (
@@ -290,10 +333,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                       selectOrder(o);
                       setMobileMenuOpen(false);
                     }}
-                    className={`text-xs px-2.5 py-1.5 rounded-lg font-mono font-bold ${
+                    className={`text-xs px-2.5 py-1.5 rounded-lg font-mono ${
                       currentOrder?.id === o.id
-                        ? 'bg-amber-400 text-slate-950 poke-box-sm'
-                        : 'bg-white poke-box-sm text-slate-800'
+                        ? 'bg-blue-600 text-white font-semibold'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
                     {o.orderNumber} ({o.status})

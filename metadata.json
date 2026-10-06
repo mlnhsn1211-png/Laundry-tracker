@@ -1,6 +1,6 @@
 {
   "name": "CleanTrack",
-  "description": "CleanTrack Laundry - Pokémon 20th Anniversary Edition. Track laundry in real time, receive instant WhatsApp ready alerts, and use digital Trainer Pickup Passes for line-free collection.",
+  "description": "Real-time laundry order tracking and fast-track counter pickup platform. Know when your clothes are ready, pay via QRIS, and pick up with zero queue delay.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

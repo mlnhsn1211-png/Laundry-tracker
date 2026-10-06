@@ -1,59 +1,54 @@
 import React from 'react';
-import { PackageCheck, Smartphone, BellRing, QrCode, ShieldCheck, Zap, Heart } from 'lucide-react';
-import { PokeballIcon } from './PokeballIcon';
+import { PackageCheck, Smartphone, BellRing, QrCode, ShieldCheck, Zap, Clock } from 'lucide-react';
 
 export const HowItWorks: React.FC = () => {
   const steps = [
     {
       number: '01',
-      title: 'Check-In At Counter',
-      desc: 'Drop off your garments at the PokéWash counter. Your digital Order ID is instantly logged with zero paper clutter.',
+      title: 'Counter Drop-Off',
+      desc: 'Drop off garments at CleanTrack. We weigh items and issue a digital order ticket directly to your phone number.',
       icon: PackageCheck,
-      badge: 'POKÉ CENTER',
-      ball: 'standard' as const,
-      color: 'bg-red-500 text-white',
+      badge: 'QUICK INTAKE',
+      color: 'bg-blue-50 text-blue-600 border border-blue-100',
     },
     {
       number: '02',
-      title: 'Elemental Care Cycle',
-      desc: 'Track every cycle from your Pokédex / phone in real time: hydro washing, tumble heat drying, and steam press.',
+      title: 'Real-Time Tracking',
+      desc: 'Track each processing stage online: washing, temperature-controlled drying, steam pressing, and final inspection.',
       icon: Smartphone,
-      badge: 'LIVE HEALING',
-      ball: 'great' as const,
-      color: 'bg-blue-600 text-white',
+      badge: 'LIVE MONITOR',
+      color: 'bg-indigo-50 text-indigo-600 border border-indigo-100',
     },
     {
       number: '03',
-      title: 'WhatsApp Ready Ping',
-      desc: 'Receive an automatic WhatsApp message the second your clothes reach 100% Full HP with your 4-digit Trainer passcode.',
+      title: 'Instant WhatsApp Alert',
+      desc: 'Get an automatic message when your laundry is packaged, containing your secure 4-digit pickup code and bill status.',
       icon: BellRing,
-      badge: 'AUTO ALERT',
-      ball: 'ultra' as const,
-      color: 'bg-amber-400 text-slate-950',
+      badge: 'AUTO NOTIFY',
+      color: 'bg-amber-50 text-amber-600 border border-amber-100',
     },
     {
       number: '04',
-      title: 'Flash Trainer Pass',
-      desc: 'Show your QR pass or say your 4-digit code. Staff hands over your clothes in under 2 minutes with zero queue delay.',
+      title: 'Zero-Wait Collection',
+      desc: 'Show your digital QR pass or say your 4-digit code. Staff hands over your fresh clothes in under 2 minutes.',
       icon: QrCode,
-      badge: 'FAST PASS',
-      ball: 'gold' as const,
-      color: 'bg-purple-600 text-white',
+      badge: 'FAST PICKUP',
+      color: 'bg-emerald-50 text-emerald-600 border border-emerald-100',
     },
   ];
 
   return (
     <section className="w-full py-12 px-4 sm:px-6 max-w-6xl mx-auto" id="how-it-works-section">
       <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600 text-white font-pixel text-[9px] font-bold uppercase tracking-widest mb-1 border border-slate-900 shadow-[2px_2px_0px_#0f172a]">
-          <PokeballIcon size={12} variant="gold" />
-          <span>CLEANTRACK GUIDE • 20TH ANNIVERSARY</span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-1 border border-blue-200">
+          <Clock className="w-3.5 h-3.5" />
+          <span>The CleanTrack Experience</span>
         </div>
-        <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-slate-950">
-          The 4-Step Trainer Laundry Quest
+        <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          How CleanTrack Works
         </h2>
-        <p className="text-xs sm:text-sm text-slate-600 font-medium">
-          Inspired by the seamless care of the Pokémon Center. Fast check-in, real-time healing tracking, and zero queue pickup.
+        <p className="text-xs sm:text-sm text-slate-500 font-normal">
+          Designed to eliminate lost tickets, uncertain ready times, and long counter delays.
         </p>
       </div>
 
@@ -63,24 +58,24 @@ export const HowItWorks: React.FC = () => {
           return (
             <div
               key={st.number}
-              className="bg-white rounded-3xl p-6 poke-box poke-box-hover flex flex-col justify-between relative group"
+              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center poke-box-sm ${st.color}`}>
-                    <PokeballIcon size={24} variant={st.ball} />
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${st.color}`}>
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <span className="font-pixel text-lg font-black text-slate-300 group-hover:text-red-600 transition-colors">
+                  <span className="font-mono text-xl font-bold text-slate-300 group-hover:text-blue-600 transition-colors">
                     {st.number}
                   </span>
                 </div>
                 <div className="mb-2">
-                  <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
                     {st.badge}
                   </span>
                 </div>
-                <h3 className="font-display font-black text-lg text-slate-950 mb-1.5">{st.title}</h3>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">{st.desc}</p>
+                <h3 className="font-display font-bold text-base text-slate-900 mb-1.5">{st.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed font-normal">{st.desc}</p>
               </div>
             </div>
           );
@@ -88,24 +83,23 @@ export const HowItWorks: React.FC = () => {
       </div>
 
       {/* Speed Guarantee Callout */}
-      <div className="mt-8 bg-slate-950 text-white rounded-3xl p-6 sm:p-7 poke-box flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 poke-box-sm flex items-center justify-center shrink-0">
-            <Zap className="w-6 h-6 fill-slate-950" />
+      <div className="mt-8 bg-slate-900 text-white rounded-2xl p-6 sm:p-7 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-xl bg-blue-600/30 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0">
+            <Zap className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="font-display font-black text-base sm:text-lg flex items-center gap-2">
-              <span>Under 2-Minute Trainer Handover Guarantee</span>
-              <span className="text-xs font-pixel text-amber-400 bg-amber-400/20 px-2 py-0.5 rounded">20TH</span>
+            <h4 className="font-display font-bold text-base sm:text-lg text-white">
+              Under 2-Minute Counter Handover Guarantee
             </h4>
-            <p className="text-xs text-slate-400 font-medium mt-0.5">
-              Unique digital pickup codes eliminate manual sorting and order search delays entirely.
+            <p className="text-xs text-slate-400 font-normal mt-0.5">
+              Unique 4-digit pickup codes eliminate manual shelf searching and customer verification delays.
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-950 bg-amber-400 px-3.5 py-2 rounded-xl poke-box-sm shrink-0">
+        <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-2 rounded-xl shrink-0">
           <ShieldCheck className="w-4 h-4" />
-          <span>TRAIN ON. CLEAN ON. ⚡</span>
+          <span>Fast-Track Counter Active</span>
         </div>
       </div>
     </section>

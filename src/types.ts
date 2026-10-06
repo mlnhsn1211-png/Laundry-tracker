@@ -64,3 +64,39 @@ export interface StaffMember {
   name: string;
   role: 'STAFF' | 'MANAGER';
 }
+
+export type BookingType = 'HOME_PICKUP' | 'STORE_DROP_OFF';
+
+export type BookingStatus =
+  | 'CONFIRMED'
+  | 'COURIER_ASSIGNED'
+  | 'COLLECTED'
+  | 'COMPLETED'
+  | 'CANCELLED';
+
+export interface AssignedCourier {
+  name: string;
+  phone: string;
+  vehiclePlate: string;
+  rating: number;
+}
+
+export interface LaundryBooking {
+  id: string;
+  bookingNumber: string; // e.g. #BK-8291
+  customerName: string;
+  customerPhone: string;
+  bookingType: BookingType;
+  scheduledDate: string; // e.g. "Tomorrow, Oct 6"
+  timeSlot: string; // e.g. "09:00 - 11:00"
+  pickupAddress?: string;
+  branchName: string;
+  serviceCategory: string;
+  estimatedWeightOrQty: string;
+  estimatedCost: number;
+  notes?: string;
+  status: BookingStatus;
+  createdAt: string;
+  assignedCourier?: AssignedCourier;
+  createdOrderId?: string;
+}
