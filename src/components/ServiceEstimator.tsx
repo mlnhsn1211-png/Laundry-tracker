@@ -298,6 +298,22 @@ export const ServiceEstimator: React.FC<ServiceEstimatorProps> = ({ onOrderCreat
                 </button>
               ))}
             </div>
+
+            {/* Eco Care Formulation Note */}
+            <div className="mt-3 flex items-center gap-3 p-3 bg-emerald-50/70 rounded-xl border border-emerald-200 text-xs">
+              <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0 border border-emerald-300">
+                <img
+                  src="/src/assets/images/eco_detergent_care_1791269679733.jpg"
+                  alt="Organic botanical detergents and conditioners"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <span className="font-semibold text-emerald-900 block">100% Plant-Based Formulation</span>
+                <span className="text-[11px] text-emerald-700">Non-toxic, hypoallergenic, and formulated with zero harsh phosphates or chlorine bleach.</span>
+              </div>
+            </div>
           </div>
         </div>
 

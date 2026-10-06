@@ -82,6 +82,71 @@ export const HowItWorks: React.FC = () => {
         })}
       </div>
 
+      {/* Process Photography Highlights */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
+          <div className="aspect-16/9 w-full overflow-hidden relative">
+            <img
+              src="/src/assets/images/steam_ironing_press_1791269666554.jpg"
+              alt="High-temp steam press craftsmanship"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+            <div className="absolute bottom-3 left-4 text-white">
+              <span className="text-[10px] font-mono uppercase bg-blue-600 px-2 py-0.5 rounded text-white font-semibold">
+                Thermal Steam Smoothing
+              </span>
+            </div>
+          </div>
+          <div className="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 className="font-display font-bold text-base text-slate-900 mb-1">
+                Precision Hand Steam Pressing
+              </h4>
+              <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                High-temp pressurized vapor removes micro-creases while protecting delicate buttons, silk seams, and tailored collars without scorching or flattening.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-100 text-xs text-blue-600 font-medium">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Zero scorch guarantee · Allergen neutralizing</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
+          <div className="aspect-16/9 w-full overflow-hidden relative">
+            <img
+              src="/src/assets/images/folded_linen_clothes_1791269653955.jpg"
+              alt="Neatly folded linens and shirts with lavender"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+            <div className="absolute bottom-3 left-4 text-white">
+              <span className="text-[10px] font-mono uppercase bg-emerald-600 px-2 py-0.5 rounded text-white font-semibold">
+                Hotel-Crisp Fold
+              </span>
+            </div>
+          </div>
+          <div className="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 className="font-display font-bold text-base text-slate-900 mb-1">
+                Boutique Packaging & Botanical Infusion
+              </h4>
+              <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                Garments are aerated, folded to retail perfection, and packaged into breathable compostable wraps with calming natural French lavender essence.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-100 text-xs text-emerald-600 font-medium">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Natural essential oils · Ready to hang or stack</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Speed Guarantee Callout */}
       <div className="mt-8 bg-slate-900 text-white rounded-2xl p-6 sm:p-7 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
         <div className="flex items-center gap-4">

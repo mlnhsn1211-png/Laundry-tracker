@@ -61,10 +61,10 @@ export const Footer: React.FC = () => {
             <div className="space-y-1.5 text-xs leading-relaxed">
               <p className="flex items-start gap-1.5 text-slate-300">
                 <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                <span>Jl. Surya Kencana No. 42, Kebayoran, Jakarta Selatan</span>
+                <span>Jl. Raya Munggu, Munggu, Kecamatan Mengwi, Kabupaten Badung, Bali</span>
               </p>
               <p className="text-slate-400 pl-5 text-xs">
-                Counter Open: 07:00 – 21:00 WIB Daily
+                Counter Open: 07:00 – 21:00 WITA Daily
               </p>
             </div>
           </div>

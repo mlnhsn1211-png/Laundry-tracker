@@ -117,7 +117,7 @@ export const WhatsAppUpdateCenter: React.FC = () => {
     if (matched) {
       botResponse = `✅ Ditemukan! Pesanan *${matched.orderNumber}* (${matched.customerName}): Status *${STATUS_DETAILS[matched.status]?.label}*. Total: ${formatRupiah(matched.totalPrice)} (${matched.paymentStatus}). Kode Ambil: *${matched.pickupCode}*.`;
     } else if (query.includes('LOKASI') || query.includes('CABANG')) {
-      botResponse = `📍 Outlet CleanTrack Central Hub: Jl. Surya Kencana No. 42, Kebayoran, Jakarta Selatan. Buka setiap hari 07:00 – 21:00 WIB.`;
+      botResponse = `📍 Outlet CleanTrack Munggu Bali Hub: Jl. Raya Munggu, Munggu, Kecamatan Mengwi, Kabupaten Badung, Bali. Buka setiap hari 07:00 – 21:00 WITA.`;
     } else if (query.includes('BIAYA') || query.includes('HARGA')) {
       botResponse = `💰 Tarif CleanTrack: Cuci Lipat Reguler Rp15.000/kg (24 jam), Express Rush Rp25.000/kg (4 jam), Bedcover Rp45.000/set.`;
     }

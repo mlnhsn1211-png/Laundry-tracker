@@ -103,7 +103,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingCreated
       scheduledDate,
       timeSlot,
       pickupAddress: address,
-      branchName: 'CleanTrack Laundry - Central Hub',
+      branchName: 'CleanTrack Laundry - Munggu Bali Hub',
       serviceCategory: selectedPkg.name,
       estimatedWeightOrQty: `${estimatedQty} ${selectedPkg.category}`,
       estimatedCost,
@@ -126,7 +126,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingCreated
     estimatedWeightOrQty: `${estimatedQty} ${selectedPkg.category}`,
     estimatedCost,
     pickupAddress,
-    branchName: 'CleanTrack Laundry - Central Hub',
+    branchName: 'CleanTrack Laundry - Munggu Bali Hub',
     notes,
   });
 
@@ -266,6 +266,37 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingCreated
           ) : (
             /* Booking Form */
             <form onSubmit={handleSubmitBooking} className="space-y-8">
+              {/* Delivery Fleet Visual Feature Banner */}
+              <div className="bg-slate-900 text-white rounded-2xl overflow-hidden border border-slate-800 grid grid-cols-1 md:grid-cols-12 gap-0 shadow-md">
+                <div className="md:col-span-5 h-44 sm:h-52 md:h-auto relative overflow-hidden">
+                  <img
+                    src="/src/assets/images/courier_delivery_van_1791269693956.jpg"
+                    alt="CleanTrack Electric Delivery Courier Van"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/80 via-transparent to-transparent" />
+                </div>
+                <div className="md:col-span-7 p-5 sm:p-6 flex flex-col justify-center space-y-2">
+                  <div className="flex items-center gap-2 text-xs text-blue-400 font-mono font-semibold">
+                    <span>CleanTrack Express Fleet</span>
+                    <span aria-hidden="true" className="text-slate-600">·</span>
+                    <span className="text-emerald-400">Doorstep Guaranteed</span>
+                  </div>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-white">
+                    Contactless Home Collection & Scheduled Return
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Our courteous couriers arrive in branded vehicles equipped with hanging garment racks and digital scales. You receive immediate WhatsApp updates when clothes are collected and on their way back.
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1 text-[11px] text-slate-300">
+                    <span className="px-2 py-0.5 rounded bg-white/10">✓ GPS ETA alerts</span>
+                    <span className="px-2 py-0.5 rounded bg-white/10">✓ Breathable garment protection</span>
+                    <span className="px-2 py-0.5 rounded bg-white/10">✓ Instant digital weigh ticket</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Step 1: Booking Mode Toggle */}
               <div>
                 <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider block mb-3 flex items-center gap-1.5">
@@ -465,10 +496,10 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ onBookingCreated
                     <div className="flex items-center gap-2">
                       <Store className="w-4 h-4 text-blue-600" />
                       <span>
-                        Drop-Off Location: <strong>CleanTrack Central Hub</strong> (Jl. Surya Kencana No. 42)
+                        Drop-Off Location: <strong>CleanTrack Munggu Hub</strong> (Jl. Raya Munggu, Mengwi, Badung, Bali)
                       </span>
                     </div>
-                    <span className="text-[11px] font-semibold text-blue-700">07:00 – 21:00 WIB</span>
+                    <span className="text-[11px] font-semibold text-blue-700">07:00 – 21:00 WITA</span>
                   </div>
                 )}
 

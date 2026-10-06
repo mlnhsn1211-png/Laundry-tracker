@@ -164,7 +164,7 @@ export function buildWhatsAppMessage(
 ): string {
   const url = order.orderUrl || window.location.origin;
   const directLink = `${url}?order=${encodeURIComponent(order.orderNumber)}`;
-  const branch = order.branchName || 'CleanTrack Laundry - Central Hub';
+  const branch = order.branchName || 'CleanTrack Laundry - Munggu Bali Hub';
   const paymentNotice =
     order.paymentStatus === 'PAID'
       ? `✅ Payment: *PAID* (${formatRupiah(order.totalPrice)})`
@@ -181,7 +181,7 @@ export function buildWhatsAppMessage(
       `Simply mention code *${order.pickupCode}* or show your digital pass:\n` +
       `${directLink}\n\n` +
       `📍 *Pickup Branch:* ${branch}\n` +
-      `⏰ *Operating Hours:* 07:00 – 21:00 WIB\n\n` +
+      `⏰ *Operating Hours:* 07:00 – 21:00 WITA\n\n` +
       `Thank you for choosing CleanTrack!`
     );
   }
@@ -260,7 +260,7 @@ export function buildBookingWhatsAppMessage(booking: {
     `Booking Anda *${booking.bookingNumber}* berhasil kami jadwalkan!\n\n` +
     `📦 *Tipe Layanan:* ${booking.serviceCategory} (${booking.estimatedWeightOrQty})\n` +
     `📅 *Jadwal:* ${booking.scheduledDate} • Slot ${booking.timeSlot}\n` +
-    `📍 *Lokasi:* ${isHomePickup ? 'Jemput ke Rumah: ' + (booking.pickupAddress || 'Alamat Terdaftar') : 'Fast-Track Drop-Off di: ' + (booking.branchName || 'Central Hub')}\n` +
+    `📍 *Lokasi:* ${isHomePickup ? 'Jemput ke Rumah: ' + (booking.pickupAddress || 'Alamat Terdaftar') : 'Fast-Track Drop-Off di: ' + (booking.branchName || 'CleanTrack Munggu Bali Hub')}\n` +
     `💰 *Estimasi Biaya:* ${formatRupiah(booking.estimatedCost)}\n` +
     (booking.notes ? `📝 *Catatan Khusus:* ${booking.notes}\n` : '') +
     `\nKurir / tim CleanTrack akan menghubungi WhatsApp ini 15 menit sebelum waktu penjemputan. Terima kasih!`

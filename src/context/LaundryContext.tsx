@@ -85,7 +85,8 @@ export const LaundryProvider: React.FC<{ children: React.ReactNode }> = ({ child
         if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed.map((ord: any) => ({
             ...ord,
-            branchName: 'CleanTrack Laundry - Central Hub',
+            branchName: 'CleanTrack Laundry - Munggu Bali Hub',
+            branchAddress: 'Jl. Raya Munggu, Munggu, Kecamatan Mengwi, Kabupaten Badung, Bali',
           }));
         }
       }
@@ -403,8 +404,8 @@ export const LaundryProvider: React.FC<{ children: React.ReactNode }> = ({ child
       updatedAt: nowStr,
       pickupCode,
       qrToken: `QR-${orderNumber.replace('#', '')}-${pickupCode}-VERIFIED`,
-      branchName: 'CleanTrack Laundry - Central Hub',
-      branchAddress: 'Jl. Surya Kencana No. 42, Kebayoran, Jakarta Selatan',
+      branchName: 'CleanTrack Laundry - Munggu Bali Hub',
+      branchAddress: 'Jl. Raya Munggu, Munggu, Kecamatan Mengwi, Kabupaten Badung, Bali',
       notes: orderData.notes || '',
       statusHistory: [
         {

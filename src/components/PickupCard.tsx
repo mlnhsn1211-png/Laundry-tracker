@@ -349,7 +349,7 @@ export const PickupCard: React.FC<PickupCardProps> = ({ order }) => {
             <div className="flex items-center gap-2">
               <Building className="w-4 h-4 text-blue-400 shrink-0" />
               <span>
-                Pick up at <strong className={isReady || isPickedUp ? 'text-slate-200' : 'text-slate-700'}>{order.branchName}</strong> (Open 07:00 - 21:00 WIB)
+                Pick up at <strong className={isReady || isPickedUp ? 'text-slate-200' : 'text-slate-700'}>{order.branchName}</strong> (Open 07:00 - 21:00 WITA)
               </span>
             </div>
 

@@ -13,6 +13,8 @@ import {
   ArrowRight,
   MessageSquare,
   Calendar,
+  Rotate3d,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useLaundry } from '../context/LaundryContext';
 
@@ -24,6 +26,8 @@ interface NavbarProps {
   onScrollToHowItWorks: () => void;
   onScrollToBooking?: () => void;
   onScrollToWAUpdate?: () => void;
+  onScrollTo3D?: () => void;
+  onScrollToGallery?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -34,6 +38,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onScrollToHowItWorks,
   onScrollToBooking,
   onScrollToWAUpdate,
+  onScrollTo3D,
+  onScrollToGallery,
 }) => {
   const { currentOrder, orders, selectOrder, triggerMockWhatsAppAlert } = useLaundry();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
           </div>
           <div className="hidden sm:flex items-center gap-4 text-slate-400 text-xs">
-            <span>Central Hub • Open 07:00 – 21:00</span>
+            <span>Munggu Bali Hub • Open 07:00 – 21:00 WITA</span>
             <span>•</span>
             <span className="text-emerald-400 font-medium">Fast-Track Counter Active</span>
           </div>
@@ -134,6 +140,28 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </span>
               )}
             </button>
+
+            {onScrollTo3D && (
+              <button
+                type="button"
+                onClick={onScrollTo3D}
+                className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors flex items-center gap-1.5"
+              >
+                <Rotate3d className="w-4 h-4 text-cyan-600" />
+                <span>3D Drum</span>
+              </button>
+            )}
+
+            {onScrollToGallery && (
+              <button
+                type="button"
+                onClick={onScrollToGallery}
+                className="px-3 py-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors flex items-center gap-1.5"
+              >
+                <ImageIcon className="w-4 h-4 text-blue-600" />
+                <span>Studio Pics</span>
+              </button>
+            )}
 
             <button
               type="button"
@@ -298,6 +326,32 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
                 <span>WA Status Bot 🤖</span>
               </button>
+              {onScrollTo3D && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onScrollTo3D();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="py-2.5 px-3 bg-cyan-50 text-cyan-900 rounded-lg text-left font-semibold border border-cyan-200 flex items-center gap-1.5"
+                >
+                  <Rotate3d className="w-3.5 h-3.5 text-cyan-600" />
+                  <span>3D Drum Simulator 🌀</span>
+                </button>
+              )}
+              {onScrollToGallery && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onScrollToGallery();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="py-2.5 px-3 bg-blue-50 text-blue-900 rounded-lg text-left font-semibold border border-blue-200 flex items-center gap-1.5"
+                >
+                  <ImageIcon className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Studio Photography 📸</span>
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => {
